@@ -65,8 +65,17 @@ struct LoginScreen: View {
                         .frame(maxWidth: .infinity, alignment: .leading)
                     //custom textfield
                     
-                    CustomTextField(icon: "envelope", title: "Email", hint: "admin@gmail.com", value: $loginData.email, showPassword: $loginData.showPassword)
+                    CustomTextField(icon: "envelope", title: "Email", hint: "admin@gmail.com", value: $loginData.email, showPassword: .constant(false))
                         .padding(.top,30)
+                    
+                    CustomTextField(icon: "lock", title: "Password", hint: "123456", value: $loginData.password, showPassword: $loginData.showPassword)
+                        .padding(.top,10)
+                    
+                   //register reenter password
+                    if loginData.registerUser{
+                        CustomTextField(icon: "lock", title: "Re-Enter Password", hint: "1234546", value: $loginData.re_Enter_Password, showPassword: $loginData.showReEnterPassword)
+                            .padding(.top,30)
+                    }
                 }
                 .padding(30)
             }

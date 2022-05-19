@@ -14,6 +14,7 @@ class LoginScreenModel: ObservableObject {
     @Published var showPassword: Bool = false
     
     // Register Properties
+    @Published var registerUser: Bool = false
     @Published var re_Enter_Password: String = ""
     @Published var showReEnterPassword: Bool = false
     
