@@ -9,12 +9,12 @@ import SwiftUI
 
 
 // To use the custom font all screen
-
+let customFont = "Raleway-Regular"
 struct OnBoardingScreen: View {
     var body: some View {
         VStack{
             Text("Find your\nGadget")
-                .font(.custom(<#T##name: String##String#>, size: <#T##CGFloat#>))
+                .font(.custom(customFont, size: 55))
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(
