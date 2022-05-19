@@ -11,6 +11,8 @@ import SwiftUI
 // To use the custom font all screen
 let customFont = "Raleway-Regular"
 struct OnBoardingScreen: View {
+    // shwing login screen
+    @State var showLoginScreen: Bool = false
     var body: some View {
         VStack(alignment: .leading){
             Text("Find your\nGadget")
@@ -22,7 +24,9 @@ struct OnBoardingScreen: View {
                 .resizable()
                 .aspectRatio(contentMode: .fit)
             Button{
-                
+                withAnimation{
+                    showLoginScreen = true
+                }
             } label: {
                 Text("Get started")
                     .font(.custom(customFont, size: 18))
@@ -45,6 +49,14 @@ struct OnBoardingScreen: View {
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(
             Color("white")
+        )
+        .overlay(
+            Group{
+                if showLoginScreen{
+                    LoginScreen()
+                        .transition(.move(edge: .bottom))
+                }
+            }
         )
     }
 }
