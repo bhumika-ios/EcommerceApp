@@ -8,8 +8,27 @@
 import SwiftUI
 
 struct LoginScreen: View {
+    @StateObject var loginData: LoginScreenModel = LoginScreenModel()
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack{
+            // three half screen
+            
+            VStack{
+                
+            }
+            .frame(height: getRect().height / 3.5)
+            ScrollView(.vertical,showsIndicators: false){
+                
+            }
+            .frame(maxWidth:.infinity , maxHeight: .infinity)
+            .background(
+                Color.white
+                // apply custom corner
+                    .clipShape(CustomCorner(corner: [.topLeft,.topRight], radius: 25))
+            )
+        }
+        .frame(maxWidth:.infinity , maxHeight: .infinity)
+        .background(Color("Purple1"))
     }
 }
 
