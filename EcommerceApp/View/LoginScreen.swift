@@ -60,7 +60,7 @@ struct LoginScreen: View {
                 
                 //Login screen form
                 VStack(spacing: 15) {
-                    Text("Login")
+                    Text(loginData.registerUser ? "Register" : "Login")
                         .font(.custom(customFont, size: 22).bold())
                         .frame(maxWidth: .infinity, alignment: .leading)
                     //custom textfield
@@ -94,7 +94,7 @@ struct LoginScreen: View {
                     Button{
                         loginData.Login()
                     } label: {
-                        Text("Login")
+                        Text(loginData.registerUser ? "Create" : "Login")
                             .font(.custom(customFont, size: 17).bold())
                             .padding(.vertical,20)
                             .frame(maxWidth: .infinity)
@@ -107,6 +107,22 @@ struct LoginScreen: View {
                     }
                     .padding(.top,25)
                     .padding(.horizontal)
+                    //.frame(maxWidth: .infinity, alignment: .leading)
+                    
+                    // register user button
+                    Button{
+                        withAnimation{
+                            loginData.registerUser.toggle()
+                        }
+                    } label: {
+                        Text(loginData.registerUser ? "Back to Login" : "Create Account")
+                            .font(.custom(customFont, size: 14))
+                            .fontWeight(.semibold)
+                            .foregroundColor(Color("Purple1"))
+                        
+                        
+                    }
+                    .padding(.top, 8)
                     //.frame(maxWidth: .infinity, alignment: .leading)
                 }
                 .padding(30)
