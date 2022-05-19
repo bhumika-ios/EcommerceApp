@@ -137,6 +137,17 @@ struct LoginScreen: View {
         }
         .frame(maxWidth:.infinity , maxHeight: .infinity)
         .background(Color("Purple1"))
+        
+        //clearing data when changes.
+        //optional
+        .onChange(of: loginData.registerUser){ newValue in
+            loginData.email = ""
+            loginData.password = ""
+            loginData.re_Enter_Password = ""
+            loginData.showPassword = false
+            loginData.showReEnterPassword = false
+            
+        }
     }
     @ViewBuilder
     func CustomTextField(icon: String, title: String, hint: String, value: Binding<String>, showPassword: Binding<Bool>)->some View{
