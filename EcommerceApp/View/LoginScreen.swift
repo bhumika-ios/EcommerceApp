@@ -101,12 +101,19 @@ struct LoginScreen: View {
             }
             .foregroundColor(Color.black.opacity(0.8))
             
-            TextField(hint, text: value)
+            if title.contains("Password") {
+                SecureField(hint, text: value)
+                    .padding(.top, 2)
+            } else{
+                TextField(hint, text: value)
+                    .padding(.top,2)
+            }
             
             Divider()
                 .background(Color.black.opacity(0.4))
             
         }
+        // showing show button for password field
     }
 }
 
