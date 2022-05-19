@@ -120,9 +120,9 @@ struct LoginScreen: View {
                 
                 if title.contains("Password"){
                     Button(action: {
-                    
+                        showPassword.wrappedValue.toggle()
                     }, label: {
-                        Text("Show")
+                        Text(showPassword.wrappedValue ? "Hide" : "Show")
                             .font(.custom(customFont, size: 13).bold())
                             .foregroundColor(Color("Purple1"))
                     })
