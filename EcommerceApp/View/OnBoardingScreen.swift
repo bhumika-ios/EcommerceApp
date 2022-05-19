@@ -7,10 +7,14 @@
 
 import SwiftUI
 
+
+// To use the custom font all screen
+
 struct OnBoardingScreen: View {
     var body: some View {
         VStack{
-            
+            Text("Find your\nGadget")
+                .font(.custom(<#T##name: String##String#>, size: <#T##CGFloat#>))
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(
