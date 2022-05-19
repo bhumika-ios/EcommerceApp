@@ -13,10 +13,17 @@ struct LoginScreen: View {
         VStack{
             // three half screen
             
-            VStack{
+            
+        
+                Text("Welcome\nback")
+                    .font(.custom(customFont, size: 55).bold())
+                    .foregroundColor(.white)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .frame(height: getRect().height / 3.5)
+                    .padding()
                 
-            }
-            .frame(height: getRect().height / 3.5)
+           
+           
             ScrollView(.vertical,showsIndicators: false){
                 
             }
@@ -25,6 +32,7 @@ struct LoginScreen: View {
                 Color.white
                 // apply custom corner
                     .clipShape(CustomCorner(corner: [.topLeft,.topRight], radius: 25))
+                    .ignoresSafeArea()
             )
         }
         .frame(maxWidth:.infinity , maxHeight: .infinity)
