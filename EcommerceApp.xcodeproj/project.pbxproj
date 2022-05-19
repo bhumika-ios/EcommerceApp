@@ -14,6 +14,10 @@
 		AC3A96C92836328D0019EC0D /* EcommerceAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3A96C82836328D0019EC0D /* EcommerceAppTests.swift */; };
 		AC3A96D32836328D0019EC0D /* EcommerceAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3A96D22836328D0019EC0D /* EcommerceAppUITests.swift */; };
 		AC3A96D52836328D0019EC0D /* EcommerceAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3A96D42836328D0019EC0D /* EcommerceAppUITestsLaunchTests.swift */; };
+		AC3A96E3283636BE0019EC0D /* Raleway-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AC3A96E2283636BE0019EC0D /* Raleway-Bold.ttf */; };
+		AC3A96E5283636F20019EC0D /* Raleway-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AC3A96E4283636F20019EC0D /* Raleway-Regular.ttf */; };
+		AC3A96E7283637030019EC0D /* Raleway-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AC3A96E6283637030019EC0D /* Raleway-SemiBold.ttf */; };
+		AC3A96EB283638F30019EC0D /* OnBoardingScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3A96EA283638F30019EC0D /* OnBoardingScreen.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +48,11 @@
 		AC3A96CE2836328D0019EC0D /* EcommerceAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EcommerceAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC3A96D22836328D0019EC0D /* EcommerceAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EcommerceAppUITests.swift; sourceTree = "<group>"; };
 		AC3A96D42836328D0019EC0D /* EcommerceAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EcommerceAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		AC3A96E2283636BE0019EC0D /* Raleway-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-Bold.ttf"; sourceTree = "<group>"; };
+		AC3A96E4283636F20019EC0D /* Raleway-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-Regular.ttf"; sourceTree = "<group>"; };
+		AC3A96E6283637030019EC0D /* Raleway-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-SemiBold.ttf"; sourceTree = "<group>"; };
+		AC3A96E82836378E0019EC0D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AC3A96EA283638F30019EC0D /* OnBoardingScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingScreen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +103,9 @@
 		AC3A96B62836328B0019EC0D /* EcommerceApp */ = {
 			isa = PBXGroup;
 			children = (
+				AC3A96E82836378E0019EC0D /* Info.plist */,
+				AC3A96E9283638A60019EC0D /* View */,
+				AC3A96E12836366C0019EC0D /* Fonts */,
 				AC3A96B72836328B0019EC0D /* EcommerceAppApp.swift */,
 				AC3A96B92836328B0019EC0D /* ContentView.swift */,
 				AC3A96BB2836328D0019EC0D /* Assets.xcassets */,
@@ -125,6 +137,24 @@
 				AC3A96D42836328D0019EC0D /* EcommerceAppUITestsLaunchTests.swift */,
 			);
 			path = EcommerceAppUITests;
+			sourceTree = "<group>";
+		};
+		AC3A96E12836366C0019EC0D /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				AC3A96E6283637030019EC0D /* Raleway-SemiBold.ttf */,
+				AC3A96E4283636F20019EC0D /* Raleway-Regular.ttf */,
+				AC3A96E2283636BE0019EC0D /* Raleway-Bold.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		AC3A96E9283638A60019EC0D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				AC3A96EA283638F30019EC0D /* OnBoardingScreen.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -232,7 +262,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				AC3A96BF2836328D0019EC0D /* Preview Assets.xcassets in Resources */,
+				AC3A96E3283636BE0019EC0D /* Raleway-Bold.ttf in Resources */,
 				AC3A96BC2836328D0019EC0D /* Assets.xcassets in Resources */,
+				AC3A96E5283636F20019EC0D /* Raleway-Regular.ttf in Resources */,
+				AC3A96E7283637030019EC0D /* Raleway-SemiBold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -257,6 +290,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC3A96EB283638F30019EC0D /* OnBoardingScreen.swift in Sources */,
 				AC3A96BA2836328B0019EC0D /* ContentView.swift in Sources */,
 				AC3A96B82836328B0019EC0D /* EcommerceAppApp.swift in Sources */,
 			);
@@ -420,6 +454,7 @@
 				DEVELOPMENT_TEAM = LU893QGJWJ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = EcommerceApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -449,6 +484,7 @@
 				DEVELOPMENT_TEAM = LU893QGJWJ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = EcommerceApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
