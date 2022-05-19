@@ -91,7 +91,23 @@ struct LoginScreen: View {
                     .frame(maxWidth: .infinity, alignment: .leading)
                     
                     //Login button
-                    
+                    Button{
+                        loginData.Login()
+                    } label: {
+                        Text("Login")
+                            .font(.custom(customFont, size: 17).bold())
+                            .padding(.vertical,20)
+                            .frame(maxWidth: .infinity)
+                            .foregroundColor(.white)
+                            .background(Color("Purple1"))
+                            .cornerRadius(15)
+                            .shadow(color: Color.black.opacity(0.07), radius: 5, x: 5, y: 5)
+                        
+                        
+                    }
+                    .padding(.top,25)
+                    .padding(.horizontal)
+                    //.frame(maxWidth: .infinity, alignment: .leading)
                 }
                 .padding(30)
             }
