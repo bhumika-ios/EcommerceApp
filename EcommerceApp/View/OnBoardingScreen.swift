@@ -36,11 +36,12 @@ struct OnBoardingScreen: View {
             }
             .padding(.horizontal,10)
             // add small distance for larger display
-            .offset(y:20)
+            .offset(y: getRect().height < 750 ? 20 : 40)
             
             Spacer()
         }
         .padding()
+        .padding(.top,getRect().height < 750 ? 0 : 20)
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(
             Color("white")
@@ -51,9 +52,15 @@ struct OnBoardingScreen: View {
 struct OnBoardingScreen_Previews: PreviewProvider {
     static var previews: some View {
         OnBoardingScreen()
-            .previewDevice("iPhone1")
-        OnBoardingScreen()
-            .previewDevice("iPhone12")
+            
         
+    }
+}
+
+//Extending view to get screen bounds...
+
+extension View{
+    func getRect()->CGRect{
+        return UIScreen.main.bounds
     }
 }
