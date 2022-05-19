@@ -58,6 +58,17 @@ struct LoginScreen: View {
            
             ScrollView(.vertical,showsIndicators: false){
                 
+                //Login screen form
+                VStack(spacing: 15) {
+                    Text("Login")
+                        .font(.custom(customFont, size: 22).bold())
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                    //custom textfield
+                    
+                    CustomTextField(icon: "envelope", title: "Email", hint: "admin@gmail.com", value: $loginData.email, showPassword: $loginData.showPassword)
+                        .padding(.top,30)
+                }
+                .padding(30)
             }
             .frame(maxWidth:.infinity , maxHeight: .infinity)
             .background(
@@ -70,10 +81,29 @@ struct LoginScreen: View {
         .frame(maxWidth:.infinity , maxHeight: .infinity)
         .background(Color("Purple1"))
     }
+    @ViewBuilder
+    func CustomTextField(icon: String, title: String, hint: String, value: Binding<String>, showPassword: Binding<Bool>)->some View{
+        VStack(alignment: .leading, spacing: 12){
+            Label {
+                Text(title)
+                    .font(.custom(customFont, size: 14))
+            } icon: {
+                Image(systemName: icon)
+            }
+            .foregroundColor(Color.black.opacity(0.8))
+            
+            TextField(hint, text: value)
+            
+            Divider()
+                .background(Color.black.opacity(0.4))
+            
+        }
+    }
 }
 
 struct LoginScreen_Previews: PreviewProvider {
     static var previews: some View {
         LoginScreen()
+          
     }
 }
