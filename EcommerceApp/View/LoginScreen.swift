@@ -101,7 +101,7 @@ struct LoginScreen: View {
             }
             .foregroundColor(Color.black.opacity(0.8))
             
-            if title.contains("Password") {
+            if title.contains("Password") && !showPassword.wrappedValue{
                 SecureField(hint, text: value)
                     .padding(.top, 2)
             } else{
