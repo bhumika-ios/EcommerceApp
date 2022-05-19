@@ -114,6 +114,25 @@ struct LoginScreen: View {
             
         }
         // showing show button for password field
+        .overlay(
+            
+            Group{
+                
+                if title.contains("Password"){
+                    Button(action: {
+                    
+                    }, label: {
+                        Text("Show")
+                            .font(.custom(customFont, size: 13).bold())
+                            .foregroundColor(Color("Purple1"))
+                    })
+                  .offset(y: 8)
+                   
+               }
+                    
+         }
+                    ,alignment: .trailing
+        )
     }
 }
 
