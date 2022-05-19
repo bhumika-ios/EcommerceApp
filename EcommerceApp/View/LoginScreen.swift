@@ -74,8 +74,24 @@ struct LoginScreen: View {
                    //register reenter password
                     if loginData.registerUser{
                         CustomTextField(icon: "lock", title: "Re-Enter Password", hint: "1234546", value: $loginData.re_Enter_Password, showPassword: $loginData.showReEnterPassword)
-                            .padding(.top,30)
+                            .padding(.top,10)
                     }
+                    // forgot password button
+                    Button{
+                        loginData.ForgotPassword()
+                    } label: {
+                        Text("Forgot Password")
+                            .font(.custom(customFont, size: 14))
+                            .fontWeight(.semibold)
+                            .foregroundColor(Color("Purple1"))
+                        
+                        
+                    }
+                    .padding(.top, 8)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    
+                    //Login button
+                    
                 }
                 .padding(30)
             }
