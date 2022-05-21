@@ -71,6 +71,19 @@ struct HomeTabScreen: View {
             // changing color current product related
                 .foregroundColor(homeData.productType == type ? Color("Purple") : Color.gray)
                 .padding(.bottom,10)
+            // Adding indicator for lining
+                .overlay(
+                
+                    ZStack{
+                        if homeData.productType == type{
+                            Capsule()
+                                .fill(Color("Purple"))
+                                .frame( height: 2)
+                        }
+                    }
+                        .padding(.horizontal,-5)
+                    ,alignment: .bottom
+                )
         }
         
         
