@@ -41,6 +41,17 @@ struct MainScreen: View {
                             .renderingMode(.template)
                             .aspectRatio(contentMode: .fit)
                             .frame(width:22, height: 22)
+                        // apply little shadow at backgroung
+                            .background(
+                                Color("Purple")
+                                    .opacity(1.0)
+                                    .cornerRadius(5)
+                                // blurring
+                                    .blur(radius: 5)
+                                 //making little big
+                                   .padding(-7)
+                                   .opacity(currentTab == tab ? 1 : 0)
+                            )
                             .frame(maxWidth:.infinity )
                             .foregroundColor(currentTab == tab ? Color("Purple1") : Color.black.opacity(0.3))
                     }
