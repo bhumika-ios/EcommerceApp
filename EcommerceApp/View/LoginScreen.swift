@@ -12,9 +12,6 @@ struct LoginScreen: View {
     var body: some View {
         VStack{
             // three half screen
-            
-            
-        
                 Text("Welcome\nback")
                     .font(.custom(customFont, size: 55).bold())
                     .foregroundColor(.white)

@@ -12,6 +12,7 @@ class LoginScreenModel: ObservableObject {
     @Published var email: String = ""
     @Published var password: String = ""
     @Published var showPassword: Bool = false
+    @Published var LoginScreen: Bool = false
     
     // Register Properties
     @Published var registerUser: Bool = false

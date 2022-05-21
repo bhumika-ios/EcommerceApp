@@ -21,6 +21,7 @@
 		AC3A96ED283647860019EC0D /* LoginScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3A96EC283647860019EC0D /* LoginScreen.swift */; };
 		AC3A96F0283647AD0019EC0D /* LoginScreenModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3A96EF283647AD0019EC0D /* LoginScreenModel.swift */; };
 		AC3A96F228364B4E0019EC0D /* CustomCorner.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3A96F128364B4E0019EC0D /* CustomCorner.swift */; };
+		ACFCA4572838C3A1004C70CA /* MainScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACFCA4562838C3A1004C70CA /* MainScreen.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 		AC3A96EC283647860019EC0D /* LoginScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreen.swift; sourceTree = "<group>"; };
 		AC3A96EF283647AD0019EC0D /* LoginScreenModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreenModel.swift; sourceTree = "<group>"; };
 		AC3A96F128364B4E0019EC0D /* CustomCorner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCorner.swift; sourceTree = "<group>"; };
+		ACFCA4562838C3A1004C70CA /* MainScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,6 +164,7 @@
 				AC3A96EA283638F30019EC0D /* OnBoardingScreen.swift */,
 				AC3A96EC283647860019EC0D /* LoginScreen.swift */,
 				AC3A96F128364B4E0019EC0D /* CustomCorner.swift */,
+				ACFCA4562838C3A1004C70CA /* MainScreen.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -308,6 +311,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AC3A96EB283638F30019EC0D /* OnBoardingScreen.swift in Sources */,
+				ACFCA4572838C3A1004C70CA /* MainScreen.swift in Sources */,
 				AC3A96ED283647860019EC0D /* LoginScreen.swift in Sources */,
 				AC3A96F0283647AD0019EC0D /* LoginScreenModel.swift in Sources */,
 				AC3A96F228364B4E0019EC0D /* CustomCorner.swift in Sources */,
