@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct HomeTabScreen: View {
+  @Namespace var animation
     @StateObject var homeData: HomeViewModel = HomeViewModel()
     var body: some View {
         ScrollView(.vertical, showsIndicators: false){
@@ -52,11 +53,51 @@ struct HomeTabScreen: View {
                     .padding(.horizontal, 25)
                 }
                 .padding(.top, 28)
+                
+                // Product Screen
+                ScrollView(.horizontal, showsIndicators: false){
+                    HStack(spacing: 25){
+                        ForEach(homeData.products){product in
+                            // Product cardview
+                            ProductCrdView(product: product)
+                        }
+                    }
+                    .padding(.horizontal,25)
+                    .padding(.top,30)
+                }
+                
             }
             .padding()
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(.white)
+        .background(Color("LightGray"))
+    }
+    @ViewBuilder
+    func ProductCrdView(product: Product)->some View{
+        VStack(spacing: 10){
+        Image(product.productImage)
+            .resizable()
+            .aspectRatio(contentMode: .fit)
+            .frame(width: getRect().width / 2.5, height: getRect().width / 2.5)
+            Text(product.title)
+                .font(.custom(customFont, size: 14))
+                .fontWeight(.semibold)
+                .padding(.top)
+            Text(product.subtitle)
+                .font(.custom(customFont, size: 12))
+                .foregroundColor(.gray)
+            Text(product.price)
+                .font(.custom(customFont, size: 13))
+                .fontWeight(.bold)
+                .foregroundColor(Color("Purple1"))
+                .padding(.top,5)
+        }
+        .padding(.horizontal,20)
+        .padding(.bottom,22)
+        .background(
+            Color.white
+                .cornerRadius(25)
+        )
     }
     @ViewBuilder
     func ProductTypeView(type: ProductType)->some View{
@@ -78,6 +119,12 @@ struct HomeTabScreen: View {
                         if homeData.productType == type{
                             Capsule()
                                 .fill(Color("Purple"))
+                            //match geometry effect
+                                .matchedGeometryEffect(id: "PRODUCTTAB", in: animation)
+                                .frame( height: 2)
+                        } else{
+                            Capsule()
+                                .fill(Color.clear)
                                 .frame( height: 2)
                         }
                     }
