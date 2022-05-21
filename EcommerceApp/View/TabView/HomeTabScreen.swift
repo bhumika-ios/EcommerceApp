@@ -63,11 +63,12 @@ struct HomeTabScreen: View {
                         }
                     }
                     .padding(.horizontal,25)
-                    .padding(.top,30)
+                    .padding(.bottom)
+                    .padding(.top,80)
                 }
-                
+                .padding(.top,30)
             }
-            .padding()
+            .padding(.vertical)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color("LightGray"))
@@ -79,6 +80,10 @@ struct HomeTabScreen: View {
             .resizable()
             .aspectRatio(contentMode: .fit)
             .frame(width: getRect().width / 2.5, height: getRect().width / 2.5)
+            // moving the image top to like at fixed at half top..
+            .offset(y: -80)
+            .padding(.bottom, -80)
+            
             Text(product.title)
                 .font(.custom(customFont, size: 14))
                 .fontWeight(.semibold)
@@ -98,6 +103,7 @@ struct HomeTabScreen: View {
             Color.white
                 .cornerRadius(25)
         )
+        
     }
     @ViewBuilder
     func ProductTypeView(type: ProductType)->some View{
