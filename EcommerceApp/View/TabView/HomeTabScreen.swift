@@ -14,25 +14,22 @@ struct HomeTabScreen: View {
         ScrollView(.vertical, showsIndicators: false){
          
             VStack(spacing:15){
-            
-                HStack(spacing: 15) {
-                    Image(systemName: "magnifyingglass")
-                        .font(.title2)
-                        .foregroundColor(.gray)
-                    
-                    // need to separate view for search bar
-                    TextField("Search", text: .constant(""))
-                        .disabled(true)
+                //saerch bar
+                ZStack{
+                    if homeData.searchActive{
+                        SearchBar()
+                    }else{
+                        SearchBar().matchedGeometryEffect(id: "SEARCHBAR", in: animation)
+                    }
                 }
-                .padding(.vertical, 12)
-                .padding(.horizontal)
-                .background(
-                        Capsule()
-                            .strokeBorder(Color.gray,lineWidth: 0.8)
-                        
-                )
                 .frame(width: getRect().width / 1.6)
                 .padding(.horizontal,20)
+                .contentShape(Rectangle())
+                .onTapGesture {
+                    withAnimation(.easeInOut){
+                        homeData.searchActive = true
+                    }
+                }
                 
                  Text("Order online\ncollect in Store")
                     .font(.custom(customFont, size: 28).bold())
@@ -71,7 +68,7 @@ struct HomeTabScreen: View {
                 // this button show all product on the current product type
                 //since here were showing only four
                 Button{
-                    
+                    homeData.showMoreProductsOnType.toggle()
                 } label: {
                     Label {
                     Image(systemName: "arrow.right")
@@ -95,9 +92,47 @@ struct HomeTabScreen: View {
         .onChange(of: homeData.productType){ newValue in homeData.filterProductByType()
         }
         	// preview issue
+        .sheet(isPresented: $homeData.showMoreProductsOnType){
         
+        }content: {
+            MoreProductView()
+        }
+        // displaying searchview
+        .overlay(
+            ZStack{
+                if homeData.searchActive{
+                    SearchView(animation: animation)
+                        .environmentObject(homeData)
+                }
+            }
+        )
+            
         
     }
+    //adding  match geometry effect
+    //avoiding code replication
+    
+    @ViewBuilder
+    func SearchBar()->some View{
+        
+        HStack(spacing: 15) {
+            Image(systemName: "magnifyingglass")
+                .font(.title2)
+                .foregroundColor(.gray)
+            
+            // need to separate view for search bar
+            TextField("Search", text: .constant(""))
+                .disabled(true)
+        }
+        .padding(.vertical, 12)
+        .padding(.horizontal)
+        .background(
+                Capsule()
+                    .strokeBorder(Color.gray,lineWidth: 0.8)
+                
+        )
+    }
+    
     @ViewBuilder
     func ProductCrdView(product: Product)->some View{
         VStack(spacing: 10){

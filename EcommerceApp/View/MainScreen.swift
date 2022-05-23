@@ -19,7 +19,7 @@ struct MainScreen: View {
        //Tab View
         VStack(spacing: 0) {
             TabView(selection: $currentTab) {
-                Text("Home")
+                HomeTabScreen()
                     .tag(Tab.Home)
                 Text("Like")
                     .tag(Tab.Like)
@@ -60,6 +60,7 @@ struct MainScreen: View {
             .padding([.horizontal,.bottom])
             .padding(.bottom,10)
         }
+        .background(Color("LightGray").ignoresSafeArea())
     }
 }
 

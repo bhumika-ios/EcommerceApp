@@ -18,14 +18,21 @@ class LoginScreenModel: ObservableObject {
     @Published var registerUser: Bool = false
     @Published var re_Enter_Password: String = ""
     @Published var showReEnterPassword: Bool = false
-    
+    //log status.
+    @AppStorage("log_Status") var log_Status: Bool = false
     //Login call
     func Login(){
         // action
+        withAnimation{
+            log_Status = true
+        }
     }
     
     func Register(){
         // action
+        withAnimation{
+            log_Status = true
+        }
     }
     
     func ForgotPassword(){

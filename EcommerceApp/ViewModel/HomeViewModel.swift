@@ -24,6 +24,13 @@ class  HomeViewModel: ObservableObject {
     ]
     // filteredn product
     @Published var filteredProducts: [Product] = []
+    //More the product on the type
+    @Published var showMoreProductsOnType: Bool = false
+    
+    //Search Data..
+    @Published var searchText: String = ""
+    @Published var searchActive: Bool = false
+    
     init(){
         filterProductByType()
     }

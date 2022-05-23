@@ -8,8 +8,18 @@
 import SwiftUI
 
 struct ContentView: View {
+    // Log Status
+    @AppStorage("log_Status") var log_Status: Bool = false
     var body: some View {
-        HomeTabScreen()
+       
+        Group{
+            if log_Status{
+                MainScreen()
+            }else{
+                OnBoardingScreen()
+            }
+        }
+      
     }
 }
 
