@@ -101,7 +101,7 @@ struct HomeTabScreen: View {
         .overlay(
             ZStack{
                 if homeData.searchActive{
-                    SearchView(animation: animation)
+                    SearchView()
                         .environmentObject(homeData)
                 }
             }
