@@ -57,7 +57,7 @@ struct HomeTabScreen: View {
                 // Product Screen
                 ScrollView(.horizontal, showsIndicators: false){
                     HStack(spacing: 25){
-                        ForEach(homeData.products){product in
+                        ForEach(homeData.filteredProducts){product in
                             // Product cardview
                             ProductCrdView(product: product)
                         }
@@ -67,11 +67,36 @@ struct HomeTabScreen: View {
                     .padding(.top,80)
                 }
                 .padding(.top,30)
+                // see more button
+                // this button show all product on the current product type
+                //since here were showing only four
+                Button{
+                    
+                } label: {
+                    Label {
+                    Image(systemName: "arrow.right")
+                    }icon: {
+                        Text("See More...")
+                    }
+                    .font(.custom(customFont, size: 15).bold())
+                    .foregroundColor(Color("Purple1"))
+                    
+                }
+                .frame(maxWidth: .infinity, alignment: .trailing)
+                .padding(.trailing)
+                .padding(.top, 10)
             }
             .padding(.vertical)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color("LightGray"))
+        
+        //updating data whenever changes
+        .onChange(of: homeData.productType){ newValue in homeData.filterProductByType()
+        }
+        	// preview issue
+        
+        
     }
     @ViewBuilder
     func ProductCrdView(product: Product)->some View{
