@@ -23,6 +23,7 @@ struct SearchView: View {
                     withAnimation{
                         homeData.searchActive = false
                     }
+                    homeData.searchText = ""
                 }label: {
                     Image(systemName: "arrow.left")
                         .font(.title2)

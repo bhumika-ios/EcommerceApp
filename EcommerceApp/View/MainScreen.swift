@@ -23,7 +23,7 @@ struct MainScreen: View {
                     .tag(Tab.Home)
                 Text("Like")
                     .tag(Tab.Like)
-                Text("Profile")
+                ProfileScreen()
                     .tag(Tab.Profile)
                 Text("Cart")
                     .tag(Tab.Cart)
