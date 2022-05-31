@@ -16,6 +16,25 @@ struct ProductDetailView: View {
         VStack{
             //Title bar and product Image
             VStack{
+                // TitleBar
+                HStack{
+                    Button{
+                        
+                    } label: {
+                        Image(systemName: "arrow.left")
+                            .font(.title2)
+                            .foregroundColor(Color.black.opacity(0.7))
+                    }
+                    Spacer()
+                     
+                    Button{
+                        
+                    } label: {
+                        Image(systemName: "heart.fill")
+                            .foregroundColor(Color.black.opacity(0.7))
+                        
+                    }
+                }
                 
             }
             .frame(height: getRect().height / 2.7)
