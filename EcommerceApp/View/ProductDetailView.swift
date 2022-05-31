@@ -35,6 +35,16 @@ struct ProductDetailView: View {
                         
                     }
                 }
+                .padding()
+                
+                // ProductImage
+                Image(product.productImage)
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .padding(.horizontal)
+                    .offset(y: -12)
+                    .frame(maxHeight: .infinity)
+                
                 
             }
             .frame(height: getRect().height / 2.7)
