@@ -8,7 +8,10 @@
 import SwiftUI
 
 struct HomeTabScreen: View {
-  @Namespace var animation
+    var animation: Namespace.ID
+    
+    //shared data
+    @EnvironmentObject var sharedData: SharedDataModel
     @StateObject var homeData: HomeViewModel = HomeViewModel()
     var body: some View {
         ScrollView(.vertical, showsIndicators: false){
@@ -136,9 +139,20 @@ struct HomeTabScreen: View {
     @ViewBuilder
     func ProductCrdView(product: Product)->some View{
         VStack(spacing: 10){
-        Image(product.productImage)
-            .resizable()
-            .aspectRatio(contentMode: .fit)
+            // add geometry
+            ZStack{
+                if sharedData.showDetailProduct{
+                    Image(product.productImage)
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                } else {
+                    Image(product.productImage)
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .matchedGeometryEffect(id: "\(product.id)IMAGE", in: animation)
+                }
+            }
+        
             .frame(width: getRect().width / 2.5, height: getRect().width / 2.5)
             // moving the image top to like at fixed at half top..
             .offset(y: -80)
@@ -163,6 +177,14 @@ struct HomeTabScreen: View {
             Color.white
                 .cornerRadius(25)
         )
+        //showing product detail when tapped
+        .onTapGesture {
+            withAnimation(.easeInOut){
+                sharedData.detailProduct = product
+                sharedData.showDetailProduct = true
+            }
+        }
+        
         
     }
     @ViewBuilder
@@ -205,7 +227,7 @@ struct HomeTabScreen: View {
 
 struct HomeTabScreen_Previews: PreviewProvider {
     static var previews: some View {
-        HomeTabScreen()
+        MainScreen()
     }
 }
 

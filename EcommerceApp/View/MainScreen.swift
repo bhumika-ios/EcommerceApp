@@ -10,6 +10,11 @@ import SwiftUI
 struct MainScreen: View {
     // current tab
     @State var currentTab: Tab = .Home
+    
+    @StateObject var sharedData: SharedDataModel = SharedDataModel()
+    
+    @Namespace var animation
+    
     //Hidding tabbar
     init(){
         UITabBar.appearance().isHidden = true
@@ -19,7 +24,8 @@ struct MainScreen: View {
        //Tab View
         VStack(spacing: 0) {
             TabView(selection: $currentTab) {
-                HomeTabScreen()
+                HomeTabScreen(animation: animation)
+                    .environmentObject(sharedData)
                     .tag(Tab.Home)
                 Text("Like")
                     .tag(Tab.Like)
@@ -61,6 +67,18 @@ struct MainScreen: View {
             .padding(.bottom,10)
         }
         .background(Color("LightGray").ignoresSafeArea())
+        .overlay(
+            ZStack{
+                // detail screen
+                if let product = sharedData.detailProduct,sharedData.showDetailProduct{
+                    
+                    ProductDetailView(product: product, animation: animation)
+                        .environmentObject(sharedData)
+                    //adding transition
+                        .transition(.asymmetric(insertion: .move(edge: .trailing), removal: .opacity))
+                }
+            }
+        )
     }
 }
 
