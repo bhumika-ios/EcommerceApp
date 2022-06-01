@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		AC2067B328473E6B005A8E32 /* LikedScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC2067B228473E6B005A8E32 /* LikedScreen.swift */; };
+		AC2067B528475912005A8E32 /* CartScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC2067B428475911005A8E32 /* CartScreen.swift */; };
 		AC3A96B82836328B0019EC0D /* EcommerceAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3A96B72836328B0019EC0D /* EcommerceAppApp.swift */; };
 		AC3A96BA2836328B0019EC0D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3A96B92836328B0019EC0D /* ContentView.swift */; };
 		AC3A96BC2836328D0019EC0D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC3A96BB2836328D0019EC0D /* Assets.xcassets */; };
@@ -53,6 +54,7 @@
 
 /* Begin PBXFileReference section */
 		AC2067B228473E6B005A8E32 /* LikedScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikedScreen.swift; sourceTree = "<group>"; };
+		AC2067B428475911005A8E32 /* CartScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartScreen.swift; sourceTree = "<group>"; };
 		AC3A96B42836328B0019EC0D /* EcommerceApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EcommerceApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC3A96B72836328B0019EC0D /* EcommerceAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EcommerceAppApp.swift; sourceTree = "<group>"; };
 		AC3A96B92836328B0019EC0D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -211,6 +213,7 @@
 				ACFCA4592838DBC9004C70CA /* HomeTabScreen.swift */,
 				ACB50995283CA4F4005C07FD /* ProfileScreen.swift */,
 				AC2067B228473E6B005A8E32 /* LikedScreen.swift */,
+				AC2067B428475911005A8E32 /* CartScreen.swift */,
 			);
 			path = TabView;
 			sourceTree = "<group>";
@@ -365,6 +368,7 @@
 				ACEC3E20283B7932007A9AB7 /* StaggeredGrid.swift in Sources */,
 				ACFCA45F2838E29C004C70CA /* HomeViewModel.swift in Sources */,
 				ACEC3E1E283B6949007A9AB7 /* SearchView.swift in Sources */,
+				AC2067B528475912005A8E32 /* CartScreen.swift in Sources */,
 				AC3A96F0283647AD0019EC0D /* LoginScreenModel.swift in Sources */,
 				ACEC3E1C283B60FA007A9AB7 /* MoreProductView.swift in Sources */,
 				ACFCA45D2838DF59004C70CA /* Product.swift in Sources */,

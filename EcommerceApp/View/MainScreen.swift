@@ -32,7 +32,8 @@ struct MainScreen: View {
                     .tag(Tab.Like)
                 ProfileScreen()
                     .tag(Tab.Profile)
-                Text("Cart")
+             CartScreen()
+                    .environmentObject(sharedData)
                     .tag(Tab.Cart)
                 
             }
