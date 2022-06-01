@@ -52,6 +52,7 @@ struct ProductDetailView: View {
                 
             }
             .frame(height: getRect().height / 2.7)
+            .zIndex(1)
             
             //product details
             ScrollView(.vertical, showsIndicators: false){
@@ -120,6 +121,7 @@ struct ProductDetailView: View {
                     .clipShape(CustomCorner(corner: [.topLeft,.topRight], radius: 25))
                     .ignoresSafeArea()
             )
+            .zIndex(0)
         }
         .background(Color("LightGray").ignoresSafeArea())
     }
