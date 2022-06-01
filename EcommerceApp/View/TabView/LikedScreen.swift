@@ -9,7 +9,7 @@ import SwiftUI
 
 struct LikedScreen: View {
     @EnvironmentObject var sharedData: SharedDataModel
-    @EnvironmentObject var homeData: HomeViewModel
+    
     
     //Delete Option
     @State var showDeleteOption: Bool = false
@@ -33,9 +33,10 @@ struct LikedScreen: View {
                                 .frame(width: 25, height: 25)
                             
                         }
+                        .opacity(sharedData.likedProducts.isEmpty ? 0 : 1)
                     }
                     // checking liked or not
-                    if !sharedData.likedProducts.isEmpty{
+                    if sharedData.likedProducts.isEmpty{
                         Group{
                             Image(systemName:"heart.slash.fill")
                                 .resizable()
@@ -60,12 +61,12 @@ struct LikedScreen: View {
                         // Displaying product
                         VStack(spacing: 15){
                             // for designing
-                            ForEach(homeData.products){product in
+                            ForEach(sharedData.likedProducts){product in
                                 
                                 HStack(spacing: 0){
                                     if showDeleteOption{
                                         Button{
-                                        
+                                            deleteProduct(product: product)
                                         } label: {
                                             Image(systemName: "minus.circle.fill")
                                                 .font(.title2)
@@ -104,6 +105,7 @@ struct LikedScreen: View {
                 
                 Text(product.title)
                     .font(.custom(customFont, size: 18).bold())
+                    .lineLimit(1)
                 
                 Text(product.subtitle)
                     .font(.custom(customFont, size: 17))
@@ -115,7 +117,7 @@ struct LikedScreen: View {
                     .foregroundColor(.gray)
             }
         }
-        .padding(.horizontal)
+        .padding(.horizontal,10)
         .padding(.vertical,10)
         .frame(maxWidth: .infinity, alignment: .leading)
         .background(
@@ -123,12 +125,24 @@ struct LikedScreen: View {
                 .cornerRadius(10)
         )
     }
+    func deleteProduct(product: Product){
+        if let index = sharedData.likedProducts.firstIndex(where: {
+            currentProduct in
+            return product.id == currentProduct.id
+            
+        }){
+          let _ =  withAnimation{
+                // removing
+                sharedData.likedProducts.remove(at: index)
+            }
+        }
+    }
 }
 
 struct LikedScreen_Previews: PreviewProvider {
     static var previews: some View {
         LikedScreen()
             .environmentObject(SharedDataModel())
-            .environmentObject(HomeViewModel())
+            
     }
 }
