@@ -12,6 +12,8 @@ struct ProductDetailView: View {
     var animation: Namespace.ID
     //Shared data model
     @EnvironmentObject var sharedData: SharedDataModel
+    
+    @EnvironmentObject var homeData: HomeViewModel
     var body: some View {
         VStack{
             //Title bar and product Image
@@ -31,7 +33,7 @@ struct ProductDetailView: View {
                     Spacer()
                      
                     Button{
-                        
+                        addToLiked()
                     } label: {
                         Image(systemName: "heart.fill")
                             .foregroundColor(Color.black.opacity(0.7))
@@ -96,7 +98,7 @@ struct ProductDetailView: View {
                     .padding(.vertical,20)
                     
                     Button{
-                        
+                        addToCart()
                     } label: {
                         Text("Add to Basket")
                             .font(.custom(customFont, size: 20).bold())
@@ -123,7 +125,32 @@ struct ProductDetailView: View {
             )
             .zIndex(0)
         }
+        .animation(.easeInOut, value: sharedData.likedProducts)
+        .animation(.easeInOut, value: sharedData.cartProducts)
         .background(Color("LightGray").ignoresSafeArea())
+    }
+    //ADDTO LIKE
+    func addToLiked(){
+        if let index = sharedData.likedProducts.firstIndex(where: { product in
+            return self.product.id == product.id
+        }){
+            // remove
+            sharedData.likedProducts.remove(at: index)
+        } else {
+            //add
+            sharedData.likedProducts.append(product)
+        }
+    }
+    func addToCart(){
+        if let index = sharedData.cartProducts.firstIndex(where: { product in
+            return self.product.id == product.id
+        }){
+            // remove
+            sharedData.cartProducts.remove(at: index)
+        } else {
+            //add
+            sharedData.cartProducts.append(product)
+        }
     }
 }
 

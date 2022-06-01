@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-@main
+    @main
 struct EcommerceAppApp: App {
     var body: some Scene {
         WindowGroup {
