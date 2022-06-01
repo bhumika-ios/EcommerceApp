@@ -79,7 +79,7 @@ struct CartScreen: View {
                                         
                                     }
                                 }
-                            }   
+                            }
                             .padding(.top,25)
                             .padding(.horizontal)
                         }
@@ -178,7 +178,7 @@ struct CardView: View{
                         .foregroundColor(.gray)
                     
                     Button{
-                        product.quantity = (product.quantity > 0 ? (product.quantity - 1) : 0)
+                        product.quantity = (product.quantity > 1 ? (product.quantity - 1) : 1)
                     } label: {
                             Image(systemName: "minus")
                             .font(.caption)
