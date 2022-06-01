@@ -36,7 +36,8 @@ struct ProductDetailView: View {
                         addToLiked()
                     } label: {
                         Image(systemName: "heart.fill")
-                            .foregroundColor(Color.black.opacity(0.7))
+                            .foregroundColor(isLike() ? .red : Color.black.opacity(0.7))
+                        
                         
                     }
                 }
@@ -100,7 +101,7 @@ struct ProductDetailView: View {
                     Button{
                         addToCart()
                     } label: {
-                        Text("Add to Basket")
+                        Text("\(isAddToCart() ? "added" : "add") to Basket")
                             .font(.custom(customFont, size: 20).bold())
                             .foregroundColor(.white)
                             .padding(.vertical,20)
@@ -129,6 +130,21 @@ struct ProductDetailView: View {
         .animation(.easeInOut, value: sharedData.cartProducts)
         .background(Color("LightGray").ignoresSafeArea())
     }
+    //like
+    func isLike()->Bool{
+        return sharedData.likedProducts.contains { product in
+            return self.product.id == product.id
+            
+        }
+    }
+        //cart
+    func isAddToCart()->Bool{
+        return sharedData.cartProducts.contains { product in
+            return self.product.id == product.id
+            
+        }
+    }
+    
     //ADDTO LIKE
     func addToLiked(){
         if let index = sharedData.likedProducts.firstIndex(where: { product in
