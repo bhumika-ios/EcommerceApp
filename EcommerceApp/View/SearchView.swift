@@ -12,6 +12,9 @@ struct SearchView: View {
     
     @EnvironmentObject var homeData: HomeViewModel
     
+    //shared data
+    @EnvironmentObject var sharedData: SharedDataModel
+    
     //Activating text field with help of focusStatus.
     @FocusState var startTF: Bool
     var body: some View {
@@ -24,6 +27,9 @@ struct SearchView: View {
                         homeData.searchActive = false
                     }
                     homeData.searchText = ""
+                    // resetting data..
+                    sharedData.fromSearchPage = false
+                    
                 }label: {
                     Image(systemName: "arrow.left")
                         .font(.title2)
@@ -121,9 +127,22 @@ struct SearchView: View {
     @ViewBuilder
     func ProductCrdView(product: Product)->some View{
         VStack(spacing: 10){
-        Image(product.productImage)
-            .resizable()
-            .aspectRatio(contentMode: .fit)
+            ZStack{
+                
+                if sharedData.showDetailProduct{
+                    Image(product.productImage)
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .opacity(0)
+                }else{
+                    Image(product.productImage)
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .matchedGeometryEffect(id: "\(product.id)SEARCH", in: animation)
+                    
+                }
+            }
+        
             
             // moving the image top to like at fixed at half top..
             .offset(y: -50)
@@ -149,6 +168,15 @@ struct SearchView: View {
                 .cornerRadius(25)
         )
         .padding(.top, 50)
+        //showing product detail when tapped
+        .onTapGesture {
+            withAnimation(.easeInOut){
+                sharedData.fromSearchPage = true
+                sharedData.detailProduct = product
+                sharedData.showDetailProduct = true
+            }
+        }
+        
         
     }
 }
