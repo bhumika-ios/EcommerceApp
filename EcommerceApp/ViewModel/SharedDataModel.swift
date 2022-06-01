@@ -20,5 +20,22 @@ class SharedDataModel: ObservableObject{
     
     //basket Product
     @Published var cartProducts: [Product] = []
+    
+    //calculateing
+    func getTotalPrice()->String{
+        
+        var total: Int = 0
+        
+        cartProducts.forEach{ product in
+            let price = product.price.replacingOccurrences(of: "$", with: "") as NSString
+            
+            let quantity = product.quantity
+            let priceTotal = quantity * price.integerValue
+            
+            total += priceTotal
+            
+        }
+        return "$\(total)"
+    }
 }
    
